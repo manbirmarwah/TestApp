@@ -13,7 +13,7 @@
         android:padding="2dp"
         android:text="@string/hello_blank_fragment"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="100dp"
         android:textColor="#d90000"
         android:textSize="18sp"/>
 

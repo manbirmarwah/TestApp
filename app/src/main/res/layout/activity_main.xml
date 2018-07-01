@@ -66,7 +66,7 @@
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="43dp"
-        android:background="#2c3300ff"
+        android:background="#43009ec6"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/editText"
         android:layout_alignParentEnd="true"
@@ -84,7 +84,7 @@
         android:layout_marginRight="10dp"
         android:paddingStart="10dp"
         android:layout_below="@id/textWelcome"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="55dp"
         android:hint="Enter text to display in explicit intent..."/>
 
     <ImageButton
@@ -126,7 +126,7 @@
         android:id="@+id/actionText"
         android:layout_below="@id/textUpdate"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/colorPrimary"
         android:text="* actionbar button click updates this text *"/>
 
