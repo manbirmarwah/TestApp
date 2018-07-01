@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+
+    <item
+        android:id="@+id/add"
+        app:showAsAction="always"
+        android:title="add"/>
+
+    <item
+        android:id="@+id/reset"
+        app:showAsAction="always|withText"
+        android:title="revert"/>
+
+    <item
+        android:id="@+id/notify"
+        app:showAsAction="never"
+        android:title="Test Notification"/>
+
+    <item
+        android:id="@+id/about"
+        app:showAsAction="never"
+        android:title="About"/>
+
+    <item
+        android:id="@+id/action_exit"
+        android:title="Exit"
+        app:showAsAction="never"/>
+</menu>

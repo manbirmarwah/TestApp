@@ -1,0 +1,197 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.myapplication.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:colorPrimary="#FF9800"
+    android:background="#FFFFFF">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Welcome to a basic \ncrappy app! :p"
+        android:textColor="#008081"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/textUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="Counter"
+        android:textSize="32sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editText"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:onClick="B3"
+        android:text="-"
+        android:background="#5eff0004"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editText"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/button"
+        android:onClick="B1"
+        android:text="+"
+        android:background="#6766cc66"
+        android:textSize="22sp"/>
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:background="#2c3300ff"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:onClick="Bnext"
+        android:text="Submit" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingStart="10dp"
+        android:layout_below="@id/textWelcome"
+        android:layout_marginTop="45dp"
+        android:hint="Enter text to display in explicit intent..."/>
+
+    <ImageButton
+        android:layout_width="49dp"
+        android:layout_height="50dp"
+        android:background="@drawable/google"
+        android:id="@+id/implicit1"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Google"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/facebook"
+        android:id="@+id/implicit3"
+        android:layout_toLeftOf="@id/implicit1"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="27dp"
+        android:text="Facebook"/>
+
+    <ImageButton
+        android:layout_width="55dp"
+        android:layout_height="52dp"
+        android:id="@+id/implicit2"
+        android:layout_toEndOf="@id/implicit1"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/call"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="25dp"
+        android:text="Dialer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/actionText"
+        android:layout_below="@id/textUpdate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/colorPrimary"
+        android:text="* actionbar button click updates this text *"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
+        android:scaleType="center"/>
+
+    <Button
+        android:id="@+id/bCam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/implicit1"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:text="Camera>"
+        android:layout_marginBottom="25dp"/>
+
+    <Button
+        android:id="@+id/a1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/bCam"
+        android:layout_above="@id/implicit1"
+        android:layout_marginStart="10dp"
+        android:onClick="rotate"
+        android:text="Rotate"
+        android:layout_marginBottom="25dp"/>
+
+    <Button
+        android:id="@+id/a2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="zoom"
+        android:layout_toEndOf="@id/a1"
+        android:layout_above="@id/implicit1"
+        android:layout_marginStart="10dp"
+        android:text="Zoom"
+        android:layout_marginBottom="25dp"/>
+
+    <Button
+        android:id="@+id/a3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="blink"
+        android:layout_toEndOf="@id/a2"
+        android:layout_above="@id/implicit1"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Blink"
+        android:layout_marginBottom="25dp"/>
+
+    <!--<Button-->
+    <!--android:id="@+id/button2"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_marginBottom="15dp"-->
+    <!--android:layout_marginEnd="15dp"-->
+    <!--android:onClick="B2"-->
+    <!--android:text="Reset" />-->
+
+</RelativeLayout>
