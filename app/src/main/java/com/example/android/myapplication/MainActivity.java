@@ -15,6 +15,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 1000;
     ImageView imageView;
 
-    private ViewPager viewPager;
-    private FragmentAdapter adapter;
+    public ViewPager viewPager;
+    public FragmentAdapter adapter;
     
     public void display(int value) {
         TextView scoreView = (TextView) findViewById(R.id.textUpdate);
@@ -250,13 +251,18 @@ public class MainActivity extends AppCompatActivity {
             case R.id.add: {
                 TextView update = (TextView) findViewById(R.id.actionText);
                 update.setText("Add is clicked!");
+
                 return true;
             }
 
             case R.id.reset: {
-                TextView update = (TextView) findViewById(R.id.actionText);
-                update.setText("Revert is clicked!");
-                return true;
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+
+                Toast toast = Toast.makeText(this, "App reset!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP | Gravity.RIGHT, 60, 170);
+                toast.show();
             }
 
             case R.id.notify: {
@@ -286,15 +292,16 @@ public class MainActivity extends AppCompatActivity {
                         .setNegativeButton("Dismiss",null).show();
                 AlertDialog alertDialog = adb.create();
                 alertDialog.show();
+
                 return true;
             }
 
             case R.id.action_exit: {
                 finish();
+
             }
         }
 
         return (super.onOptionsItemSelected(item));
     }
-
 }

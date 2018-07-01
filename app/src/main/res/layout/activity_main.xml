@@ -13,6 +13,17 @@
         android:layout_height="match_parent" />
 
     <TextView
+        android:id="@+id/activity1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="11sp"
+        android:text="#1stActivity"/>
+
+    <TextView
         android:id="@+id/textWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editText"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:layout_centerHorizontal="true"
         android:text="Counter"
         android:textSize="32sp" />
@@ -73,7 +84,6 @@
         android:layout_marginStart="45dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp"
-        android:onClick="Bnext"
         android:text="Submit" />
 
     <EditText
@@ -86,6 +96,18 @@
         android:layout_below="@id/textWelcome"
         android:layout_marginTop="55dp"
         android:hint="Enter text to display in explicit intent..."/>
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bCam"
+        android:layout_centerHorizontal="true"
+        android:text="(open camera and take a picture to animate)"
+        android:textColor="#a3a3a3"
+        android:textAlignment="center"
+        android:layout_marginBottom="8dp"
+        android:textSize="10sp" />
 
     <ImageButton
         android:layout_width="49dp"
