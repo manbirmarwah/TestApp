@@ -27,10 +27,10 @@
         android:id="@+id/textWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
         android:text="Welcome to a basic \ncrappy app! :p"
-        android:textColor="#008081"
+        android:textColor="#0d6a6b"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="28sp" />
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editText"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="68dp"
         android:layout_centerHorizontal="true"
         android:text="Counter"
         android:textSize="32sp" />
@@ -51,7 +51,7 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/editText"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:onClick="B3"
@@ -65,7 +65,7 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/editText"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/button"
         android:onClick="B1"
@@ -83,7 +83,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:text="Submit" />
 
     <EditText
@@ -94,7 +94,7 @@
         android:layout_marginRight="10dp"
         android:paddingStart="10dp"
         android:layout_below="@id/textWelcome"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="45dp"
         android:hint="Enter text to display in explicit intent..."/>
 
     <TextView
@@ -109,9 +109,41 @@
         android:layout_marginBottom="8dp"
         android:textSize="10sp" />
 
+    <RadioGroup
+        android:layout_margin="15dp"
+        android:id="@+id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/editText">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="2"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="18sp"/>
+    </RadioGroup>
+
     <ImageButton
-        android:layout_width="49dp"
-        android:layout_height="50dp"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
         android:background="@drawable/google"
         android:id="@+id/implicit1"
         android:layout_alignParentBottom="true"
@@ -120,8 +152,8 @@
         android:text="Google"/>
 
     <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/facebook"
         android:id="@+id/implicit3"
         android:layout_toLeftOf="@id/implicit1"
@@ -132,8 +164,8 @@
         android:text="Facebook"/>
 
     <ImageButton
-        android:layout_width="55dp"
-        android:layout_height="52dp"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
         android:id="@+id/implicit2"
         android:layout_toEndOf="@id/implicit1"
         android:layout_alignParentBottom="true"
@@ -157,7 +189,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="205dp"
         android:scaleType="center"/>
 
     <Button
@@ -169,7 +201,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
         android:text="Camera>"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/a1"
@@ -180,7 +212,7 @@
         android:layout_marginStart="10dp"
         android:onClick="rotate"
         android:text="Rotate"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/a2"
@@ -191,7 +223,7 @@
         android:layout_above="@id/implicit1"
         android:layout_marginStart="10dp"
         android:text="Zoom"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/a3"
@@ -203,7 +235,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:text="Blink"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <!--<Button-->
     <!--android:id="@+id/button2"-->

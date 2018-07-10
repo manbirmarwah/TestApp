@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.myapplication.MainActivity$PlaceholderFragment">
+    tools:context="com.example.android.myapplication.MainActivity$PlaceholderFragment"
+    android:background="#41d172f1">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -10,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="Fragment 1"
+        android:text="Fragment 3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
         android:textColor="#d90000"

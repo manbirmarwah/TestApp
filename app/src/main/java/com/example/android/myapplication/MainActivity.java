@@ -10,8 +10,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +25,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -34,11 +39,13 @@ import android.view.animation.AnimationUtils;
 public class MainActivity extends AppCompatActivity {
 
     int value = 0;
+    private RadioGroup radioGroup;
 
     private static final int CAMERA_REQUEST = 1000;
     ImageView imageView;
 
     public ViewPager viewPager;
+    private SectionsPagerAdapter SectionsPagerAdapter;
     public FragmentAdapter adapter;
     
     public void display(int value) {
@@ -52,9 +59,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
         viewPager = findViewById(R.id.pager);
         adapter = new FragmentAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
+        viewPager.setAdapter(SectionsPagerAdapter);
 
         Button b1 = (Button) findViewById(R.id.button_next);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -66,10 +75,14 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                RadioButton rb = (RadioButton)
+                                radioGroup.findViewById(radioGroup.getCheckedRadioButtonId());
+
                                 EditText editText = (EditText)findViewById(R.id.editText);
                                 String textEntered = editText.getText().toString();
                                 Intent nextActivity = new Intent(MainActivity.this, SecondActivity.class);
-                                nextActivity.putExtra("kuch_bhi","You entered: " + textEntered + "\n\nCurrent Count: " + value);
+                                nextActivity.putExtra("kuch_bhi","You entered: " + textEntered
+                                        + "\n\nCurrent Count: " + value + "\n\nRadioButton Checked: #" + rb.getText());
                                 startActivity(nextActivity);
                             }
                         })
@@ -117,6 +130,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup.clearCheck();
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (rb.isChecked()) {
+                    Toast.makeText(MainActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage("This will take you to next intent. Are you sure you wanna make this action?");
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -133,6 +160,51 @@ public class MainActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = alert.create();
 
+    }
+
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        /**
+         * Return the Fragment associated with a specified position.
+         *
+         * @param position
+         */
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    Fragment1 fragment1 = new Fragment1();
+                    return fragment1;
+
+                case 1:
+                    Fragment2 fragment2 = new Fragment2();
+                    return fragment2;
+
+                case 2:
+                    Fragment3 fragment3 = new Fragment3();
+                    return fragment3;
+
+                default:
+                    return null;
+            }
+        }
+
+        /**
+         * Return the number of views available.
+         */
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return null;
+        }
     }
 
     /**private void setSupportActionBar(Toolbar myToolbar) {
@@ -269,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-                NotificationCompat.Builder abc = new NotificationCompat.Builder(this)
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                         .setPriority(Notification.PRIORITY_MAX)
                         .setContentTitle("Hey there!")
                         .setContentText("Tap here to reset the app state.")
@@ -277,9 +349,12 @@ public class MainActivity extends AppCompatActivity {
                         .setSmallIcon(R.mipmap.ic_launcher);
 
                 NotificationManager xyz = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                abc.setContentIntent(pendingIntent);
-                abc.setAutoCancel(true);
-                xyz.notify(001, abc.build());
+                builder.setContentIntent(pendingIntent);
+                builder.setAutoCancel(true);
+                xyz.notify(001, builder.build());
+                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+                notificationManager.notify(0, builder.build());
+
 
                 return true;
             }
